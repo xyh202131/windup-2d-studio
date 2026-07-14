@@ -5,6 +5,35 @@ import threading
 from dataclasses import dataclass
 
 
+def _model_basename(model: str) -> str:
+    return model.strip().lower().rsplit("/", 1)[-1]
+
+
+def select_available_image_model(requested: str, available: list[str], preferred: list[str]) -> str:
+    models = [model.strip() for model in available if model.strip()]
+    if not models:
+        raise ValueError("当前账户没有可用模型")
+
+    by_basename: dict[str, str] = {}
+    for model in models:
+        by_basename.setdefault(_model_basename(model), model)
+
+    for candidate in [requested, *preferred]:
+        if candidate in models:
+            return candidate
+        matched = by_basename.get(_model_basename(candidate))
+        if matched:
+            return matched
+
+    compatible = [
+        model for model in models
+        if "gemini" in _model_basename(model) and "image" in _model_basename(model)
+    ]
+    if compatible:
+        return compatible[0]
+    raise ValueError("当前账户没有兼容的 Gemini 图像模型")
+
+
 @dataclass(frozen=True)
 class ProviderSession:
     api_key: str = ""

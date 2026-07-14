@@ -36,7 +36,7 @@ start.bat --no-browser
 - API：<http://127.0.0.1:8002>
 - OpenAPI：<http://127.0.0.1:8002/docs>
 
-API Key 默认由页面的“生成服务”对话框手动输入，`start.bat` 不会读取、写入或要求 Key。默认图像模型为 `gemini-3.1-flash-image-preview`，并保留 `gemini-2.5-flash-image` 作为兼容备选；本地功能演示可输入 `demo`，模型选择 `windup-demo-image`。真实 Key 只存在后端进程内存，不写入 SQLite、浏览器存储、日志或 Git；后端环境变量仅作可选兼容方式。
+API Key 默认由页面的“生成服务”对话框手动输入，`start.bat` 不会读取、写入或要求 Key。默认图像模型为 `gemini-3.1-flash-image-preview`；连接时会读取当前账户的真实模型列表，如果默认模型未开通，会自动选择账户可用的兼容 Gemini 图像模型，例如 `gemini-2.5-flash-image`。本地功能演示可输入 `demo`，模型选择 `windup-demo-image`。真实 Key 只存在后端进程内存，不写入 SQLite、浏览器存储、日志或 Git；后端环境变量仅作可选兼容方式。
 
 如果确实要用环境变量，可在当前 CMD 会话中先设置 `QNAIGC_KEY`：
 

@@ -21,7 +21,7 @@ from .models import (
 from .processing import ImageQualityError, validate_upload
 from .provider import ProviderError
 from .service import StudioService
-from .sessions import SessionStore
+from .sessions import SessionStore, select_available_image_model
 
 
 COOKIE = "windup_2d_session"
@@ -68,9 +68,8 @@ def create_router(service: StudioService, sessions: SessionStore) -> APIRouter:
         try:
             service.provider.verify(payload.apiKey)
             models = service.provider.models(payload.apiKey)
-            if payload.model not in models and payload.apiKey != "demo":
-                raise ValueError("所选模型不在当前账户可用列表中")
-            current = sessions.connect(sid, payload.apiKey, payload.model)
+            selected_model = select_available_image_model(payload.model, models, CONTRACT["imageModels"])
+            current = sessions.connect(sid, payload.apiKey, selected_model)
             return {**current.public(), "models": models}
         except Exception as error:
             raise fail(error)

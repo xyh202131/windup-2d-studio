@@ -12,7 +12,7 @@ export function ProviderDialog({ open, onClose }: { open: boolean; onClose: () =
   const selectedModel = model || state.data?.model || contract.data?.imageModels[0] || ''
   const connect = useMutation({
     mutationFn: () => api.connect(key, selectedModel),
-    onSuccess: (next) => { client.setQueryData(['provider'], next); setKey('') },
+    onSuccess: (next) => { client.setQueryData(['provider'], next); setKey(''); setModel('') },
   })
   const disconnect = useMutation({
     mutationFn: api.disconnect,
