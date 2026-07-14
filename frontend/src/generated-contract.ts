@@ -113,9 +113,8 @@ export const STUDIO_CONTRACT = {
     "cancelled"
   ],
   "imageModels": [
-    "gemini-2.5-flash-image",
     "gemini-3.1-flash-image-preview",
-    "gemini-3.0-pro-image-preview",
+    "gemini-2.5-flash-image",
     "windup-demo-image"
   ]
 } as const
