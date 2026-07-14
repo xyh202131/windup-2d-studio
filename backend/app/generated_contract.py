@@ -116,6 +116,7 @@ STUDIO_CONTRACT = {
   "imageModels": [
     "gemini-2.5-flash-image",
     "gemini-3.1-flash-image-preview",
-    "gemini-3.0-pro-image-preview"
+    "gemini-3.0-pro-image-preview",
+    "windup-demo-image"
   ]
 }
