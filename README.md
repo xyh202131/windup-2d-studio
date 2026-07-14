@@ -20,13 +20,30 @@
 - Node.js 22 LTS
 - npm
 
-双击项目根目录的 `start.bat`。首次运行会创建 `.venv`、安装依赖、启动前后端并打开浏览器。
+双击项目根目录的 `start.bat`，或在 CMD 中执行 `start.bat`。启动器全程由 `cmd.exe` 执行，不依赖 PowerShell。首次运行会创建 `.venv`、安装依赖、启动前后端并打开浏览器。如果服务已经启动，再次执行会直接复用，不会重装正在使用的前端依赖。
+
+```cmd
+start.bat
+```
+
+如果不希望自动打开浏览器：
+
+```cmd
+start.bat --no-browser
+```
 
 - 工作台：<http://127.0.0.1:5175>
 - API：<http://127.0.0.1:8002>
 - OpenAPI：<http://127.0.0.1:8002/docs>
 
-生成服务面板中可输入七牛 QnAIGC API Key；本地功能演示可输入 `demo`，模型选择 `windup-demo-image`。真实 Key 只存在后端进程内存，不写入 SQLite、浏览器存储、日志或 Git。
+API Key 默认由页面的“生成服务”对话框手动输入，`start.bat` 不会读取、写入或要求 Key。本地功能演示可输入 `demo`，模型选择 `windup-demo-image`。真实 Key 只存在后端进程内存，不写入 SQLite、浏览器存储、日志或 Git；后端环境变量仅作可选兼容方式。
+
+如果确实要用环境变量，可在当前 CMD 会话中先设置 `QNAIGC_KEY`：
+
+```cmd
+set "QNAIGC_KEY=你的Key"
+start.bat
+```
 
 ## 手动开发
 
