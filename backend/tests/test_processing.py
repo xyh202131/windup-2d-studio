@@ -23,4 +23,3 @@ def test_upload_and_native_resolution_gate(tmp_path):
     assert result["canvas"] == [512, 512]
     with pytest.raises(ImageQualityError, match="拒绝向上放大"):
         normalize_hd(source, tmp_path / "master.png", 1024)
-

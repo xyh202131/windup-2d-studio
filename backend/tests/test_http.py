@@ -11,4 +11,3 @@ def test_health_and_contract():
     contract = client.get("/api/v1/contract").json()
     assert contract["masterSize"] == 1024
     assert contract["frameCounts"] == [8, 12, 16]
-

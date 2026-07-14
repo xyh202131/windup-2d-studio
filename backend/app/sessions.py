@@ -45,4 +45,3 @@ class SessionStore:
     def clear(self, session_id: str) -> None:
         with self._lock:
             self._items.pop(session_id, None)
-

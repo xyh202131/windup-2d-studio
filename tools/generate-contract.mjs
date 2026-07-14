@@ -24,4 +24,3 @@ for (const [path, content] of targets) {
   }
 }
 if (drift) process.exit(1)
-

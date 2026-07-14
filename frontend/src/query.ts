@@ -15,4 +15,3 @@ export function useJob(jobId: string | undefined) {
     },
   })
 }
-

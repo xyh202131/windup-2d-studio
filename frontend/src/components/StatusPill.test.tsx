@@ -8,4 +8,3 @@ describe('StatusPill', () => {
     expect(screen.getByText('等待审核')).toBeInTheDocument()
   })
 })
-

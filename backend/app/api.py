@@ -206,4 +206,3 @@ def create_router(service: StudioService, sessions: SessionStore) -> APIRouter:
             raise fail(error)
 
     return router
-

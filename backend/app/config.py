@@ -34,4 +34,3 @@ CONTRACT = json.loads(CONTRACT_PATH.read_text(encoding="utf-8"))
 def ensure_runtime() -> None:
     for name in ("uploads", "jobs", "assets", "backups", "exports", "logs"):
         (RUNTIME / name).mkdir(parents=True, exist_ok=True)
-

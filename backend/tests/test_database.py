@@ -15,4 +15,3 @@ def test_active_jobs_are_interrupted_on_restart(tmp_path):
     })
     database.initialize()
     assert database.get_job("job_1")["status"] == "interrupted"
-

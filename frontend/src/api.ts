@@ -43,4 +43,3 @@ export const api = {
   retry: (jobId: string) => request<Job>(`/jobs/${jobId}/retry`, { method: 'POST', body: '{}' }),
   cancel: (jobId: string) => request<Job>(`/jobs/${jobId}/cancel`, { method: 'POST', body: '{}' }),
 }
-

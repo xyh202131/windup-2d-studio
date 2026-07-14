@@ -51,4 +51,3 @@ class CharacterCreateFields(BaseModel):
         if not cleaned:
             raise ValueError("内容不能为空")
         return cleaned
-

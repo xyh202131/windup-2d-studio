@@ -151,4 +151,3 @@ class Database:
             connection.execute(f"UPDATE jobs SET {assignments} WHERE id=?", (*values.values(), job_id))
             connection.commit()
         return self.get_job(job_id)
-

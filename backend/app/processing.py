@@ -111,4 +111,3 @@ def sequence_quality(paths: list[Path], loop: bool) -> dict:
     for frame in frames:
         frame.close()
     return {"warnings": warnings, "duplicatePairs": duplicate_pairs}
-

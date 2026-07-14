@@ -75,4 +75,3 @@ export interface Character {
   masters: Partial<Record<ViewId, string>>
   actions: Array<{ jobId: string; action: string; view: ViewId; frameCount: number; loop: boolean }>
 }
-
