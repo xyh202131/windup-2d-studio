@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["version", "previewFps", "masterSize", "frameSize", "frameCounts", "views", "styles", "actions", "jobStatuses", "imageModels"],
+  "properties": {
+    "version": {"type": "string"},
+    "previewFps": {"const": 8},
+    "masterSize": {"const": 1024},
+    "frameSize": {"const": 512},
+    "frameCounts": {"const": [8, 12, 16]},
+    "views": {"type": "object", "minProperties": 3},
+    "styles": {"type": "object", "minProperties": 3},
+    "actions": {"type": "object", "minProperties": 6},
+    "jobStatuses": {"type": "array", "items": {"type": "string"}},
+    "imageModels": {"type": "array", "items": {"type": "string"}}
+  },
+  "additionalProperties": false
+}
+
