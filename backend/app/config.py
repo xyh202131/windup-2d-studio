@@ -16,7 +16,7 @@ class Settings:
     host: str = os.getenv("WINDUP_2D_HOST", "127.0.0.1")
     port: int = int(os.getenv("WINDUP_2D_PORT", "8002"))
     api_base: str = os.getenv("QNAIGC_BASE", "https://api.qnaigc.com/v1")
-    default_model: str = os.getenv("QNAIGC_IMAGE_MODEL", "gemini-2.5-flash-image")
+    default_model: str = os.getenv("QNAIGC_IMAGE_MODEL", "gemini-3.1-flash-image-preview")
     default_key: str = os.getenv("QNAIGC_KEY", "")
     max_workers: int = max(1, int(os.getenv("WINDUP_2D_MAX_WORKERS", "2")))
     allowed_origins: tuple[str, ...] = tuple(
